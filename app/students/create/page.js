@@ -3,10 +3,16 @@
 import React from "react";
 import {useState} from "react";
 import InputField from "@/app/components/InputField";
-import {supabase} from "@/app/lib/supabase";
 import {User2Icon, Share} from "lucide-react";
+import {supabase} from "@/app/lib/supabase";
+import { router } from "next/navigation";
+import useStore from '@/app/stores/studentStore';
+import { useRouter } from "next/navigation";
 
 export default function CreateStudent() {
+    const router =useRouter()
+    const {setActiveStudent}=useStore()
+
     const [name,setName]=useState("")
     const [age,setAge]=useState(0)
     const [email,setEmail]=useState("")
@@ -91,6 +97,8 @@ export default function CreateStudent() {
                         throw error
                     }
                     alert(`Student Profile Created \n ${JSON.stringify(data)}`)
+                    setActiveStudent(data[0])
+                    router.push('/students/Profile')
                 }catch(e){
                     alert(`Error : ${JSON.stringify(e)}`)
                 }

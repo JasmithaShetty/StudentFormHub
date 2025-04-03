@@ -19,8 +19,9 @@ export default function Home() {
     setStudentList(data)
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-2xl font-bold text-blue-600">Students List</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen py-6 px-4">
+      <h1 className="text-3xl font-bold text-blue-600 mb-6">Students List</h1>
+      <div className="grid grid-cols-1 grid-cols-3 gap-6 w-full max-w-6xl">
       {studentList.map((stud, index) => {
         return(
           <div key={index} className="border rounded-lg shadow-md p-4 w-80 bg-white my-4">
@@ -34,6 +35,7 @@ export default function Home() {
           </div>
         )
       })}
+      </div>
       <Link href="/students/create">
         <button className="bg-blue-500 text-white text-lg px-6 py-3 rounded-md mt-6 shadow-md hover:bg-blue-600 transition-all">
           Add Student
