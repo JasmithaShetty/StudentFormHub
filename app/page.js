@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { supabase } from "./lib/supabase";
+import Link from "next/link";
 
 export default function Home() {
   const [studentList,setStudentList]=useState([])
@@ -33,6 +34,11 @@ export default function Home() {
           </div>
         )
       })}
+      <Link href="/students/create">
+        <button className="bg-blue-500 text-white text-lg px-6 py-3 rounded-md mt-6 shadow-md hover:bg-blue-600 transition-all">
+          Add Student
+        </button>
+      </Link>
     </div>
   );
 }
