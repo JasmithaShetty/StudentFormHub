@@ -1,12 +1,15 @@
 import React from "react";
 
-export default function InputField({value, onChange, type, placeholder}) {
-    return (
-        <div className="bg-gray-300 p-4 rounded-md shadow-md w-96 text-black w-[400px] mb-4">
-        <input type={type}
-        className="w-full p-3"
+export default function InputField({ value, onChange, type, placeholder }) {
+  return (
+    <div className="w-full mb-4">
+      <input
+        type={type}
         value={value}
-        onChange={onChange} placeholder={placeholder}/>
-        </div>
-    )
+        onChange={onChange}
+        placeholder={placeholder}
+        className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 shadow focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+      />
+    </div>
+  );
 }
